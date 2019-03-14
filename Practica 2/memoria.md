@@ -18,6 +18,7 @@ Nota: rsync también está instalado en la máquina 1
 
 ### Hacemos al usuario de la máquina 2 dueño de /var/www/ en la máquina 2 y probamos rsync a la máquina 1:
 ![Copiamos la llave creada en la máquina 2 a la máquina 1](https://github.com/davidluque1/SWAP/blob/master/Practica%202/pract2_permisos.png)
+Nota: También debe hacerse dueño al usuario de la máquina 1 de /var/www/ en la máquina 1
 
 ### Editamos en la máquina 2 el archivo crontab para automatizar la copia
 ![Editamos en la máquina 2 el archivo crontab para automatizar la copia](https://github.com/davidluque1/SWAP/blob/master/Practica%202/pract2_crontab.png)
