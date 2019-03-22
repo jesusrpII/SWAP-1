@@ -10,11 +10,11 @@ Para la realización de la práctica hemos utilizado dos máquinas virtuales ubu
 ### Copiar de archivos por ssh
 Siguiendo las indicaciones del guión hemos probado la copia de archivos de la máquina 1 a la 2 utilizando tar mediante ssh:
 
-![Imagen1](tar1.png)
+![Imagen1](https://github.com/jesusrpII/SWAP/blob/master/Practica2/tar1.png)
 
 Comprobamos que la copia se ha realizado correctamente en la máquina 2:
 
-![Imagen2](tar2.png)
+![Imagen2](https://github.com/jesusrpII/SWAP/blob/master/Practica2/tar2.png)
 
 ### Funcionamiento de rsync
 
@@ -22,12 +22,12 @@ Hemos instalado rsync mediante el comando sudo apt-get install rsync (en nuestro
 
 Ahora desde la máquina 2 hemos clonado el directorio /var/www/ de la máquina 1 (en el directorio /var/www/ de la máquina 2):
 
-![Imagen3](rsync1.png)
+![Imagen3](https://github.com/jesusrpII/SWAP/blob/master/Practica2/rsync1.png)
 
 
 En la anterior imagen al tener el mismo contenido las dos máquinas no nos notifica ningún cambio, en cambio si modificamos en la máquina 1 podemos observar como al clonar se nos notifica en la máquina 2:
 
-![Imagen4](rsync2.png)
+![Imagen4](https://github.com/jesusrpII/SWAP/blob/master/Practica2/rsync2.png)
 
 (En la imagen anterior hemos creado previamente un directorio en la máquina 1 /var/www/html/prueba )
 
@@ -38,16 +38,16 @@ En la anterior imagen al tener el mismo contenido las dos máquinas no nos notif
 ### Configuración de ssh para acceder sin que se solicite contraseña
 Todo este proceso se realizará desde la máquina 2, primero creamos la clave pública y privada mediante el siguiente comando y a continuación copiamos la clave pública en la máquina 1:
 
-![Imagen5](clavessh.png)
+![Imagen5](https://github.com/jesusrpII/SWAP/blob/master/Practica2/clavessh.png)
 
 Comprobación de que ahora podemos acceder desde la máquina 2 a la 1 sin contraseña:
 
-![Imagen6](sshsincontra.png)
+![Imagen6](https://github.com/jesusrpII/SWAP/blob/master/Practica2/sshsincontra.png)
 
 ### Automatización del proceso utilizando cron
 Basta con modificar el archivo /etc/crontab de la siguiente forma (solo se a añadido la última línea):
 
-![Imagen7](crontab.png)
+![Imagen7](https://github.com/jesusrpII/SWAP/blob/master/Practica2/crontab.png)
 
 Se ejecutara el comando cada hora de cada dia al minuto 0.
 
