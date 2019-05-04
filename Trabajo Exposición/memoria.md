@@ -8,15 +8,15 @@ Integrantes del grupo: David Luque y Jesús Rodríguez
 ## Objetivo
 Nuestro objetivo es montar un servidor Samba para el uso de carpetas compartidas. Esto nos permitirá acceder desde diferentes dispositivos con diferentes sistemas operativos a dichas carpetas, las cuales estarán sincronizadas en todo momento.
 
-### Instalación de SMB server en Linux, configuración y prueba.
+## Instalación de SMB server en Linux, configuración y prueba.
 
-#### Instalación
+### Instalación
 
 ```PowerShell
 $ sudo apt install samba
 ```
 
-#### Configuración:
+### Configuración:
 ```PowerShell
 $ sudo vi /etc/samba/smb.conf
 ```
@@ -35,7 +35,7 @@ Y reiniciamos el servicio:
 ```PowerShell
 $ sudo systemctl restart smbd.service nmbd.service
 ```
-#### Conexión y prueba
+### Conexión y prueba
 
 Vamos a conectarnos desde tres sistemas operativos diferentes (linux, windows y Android) a la carpeta para ver el correcto y vamos a observar cómo un cambio creado desde un sitio se muestra en los demás.
 
@@ -49,6 +49,7 @@ Para la conexión desde windows recomendamos ir a ejecutar -> \\<ip_sv>. Tras pu
 
 <img src="https://github.com/davidluque1/SWAP/blob/master/Trabajo%20Exposici%C3%B3n/resultado_touchs.png">
 
+
 Para la conexión desde linux usamos simplemente el explorador: 
 
 <img src="https://github.com/davidluque1/SWAP/blob/master/Trabajo%20Exposici%C3%B3n/resultado_touchs_ubuntu.png">
@@ -58,4 +59,6 @@ Para conectarnos desde Ubuntu podemos bajarnos de la App Store un File Manager q
 
 <img src="https://github.com/davidluque1/SWAP/blob/master/cambios_android.jpeg">
 
+### Samba vs. NFS
 
+### Otros Detalles
