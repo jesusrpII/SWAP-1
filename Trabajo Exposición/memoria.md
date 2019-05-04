@@ -10,13 +10,13 @@ Nuestro objetivo es montar un servidor Samba para el uso de carpetas compartidas
 
 ### Instalación de SMB server en Linux, configuración y prueba.
 
-####Instalación
+#### Instalación
 
 ```PowerShell
 $ sudo apt install samba
 ```
 
-####Configuración:
+#### Configuración:
 ```PowerShell
 $ sudo vi /etc/samba/smb.conf
 ```
@@ -35,7 +35,7 @@ Y reiniciamos el servicio:
 ```PowerShell
 $ sudo systemctl restart smbd.service nmbd.service
 ```
-####Conexión
+#### Conexión
 Para la conexión desde windows recomendamos ir a ejecutar -> \\<ip_sv>. Tras pulsar enter nos debe llevar a la carpeta usando el explorador de archivos: 
 
 <img src="https://github.com/davidluque1/SWAP/blob/master/ejecutar.png">
