@@ -8,6 +8,8 @@ Integrantes del grupo: David Luque y Jesús Rodríguez
 ## Objetivo
 Nuestro objetivo es montar un servidor Samba para el uso de carpetas compartidas. Esto nos permitirá acceder desde diferentes dispositivos con diferentes sistemas operativos a dichas carpetas, las cuales estarán sincronizadas en todo momento.
 
+Inicialmente nuestra idea era montar un servidor NFS que sirviera para Android, Linux y Windows. Sin embargo, en la App Store prácticamente todas las aplicaciones de gestión de archivos soportaban SMB pero no NFS. Además, hemos leído y buscado sobre las ventajas y desventajas de Samba frente a NFS y parece que Samba es más adecuado cuando se está en un entorno mixto, es decir con diferentes sistemas operativos. También parece ser que NFS es bastante más rápido que Samba cuando se trata de paso de ficheros pequeños.
+
 ## Instalación de SMB server en Linux, configuración y prueba.
 
 ### Instalación
@@ -50,7 +52,7 @@ Para la conexión desde windows recomendamos ir a ejecutar -> \\<ip_sv>. Tras pu
 <img src="https://github.com/davidluque1/SWAP/blob/master/Trabajo%20Exposici%C3%B3n/resultado_touchs.png">
 
 
-Para la conexión desde linux usamos simplemente el explorador: 
+Para la conexión desde linux usamos simplemente el explorador. Debajo de equipo veremos "Conectarse con un servidor". Introducimos smb://<ip> y pulsamos enter.
 
 <img src="https://github.com/davidluque1/SWAP/blob/master/Trabajo%20Exposici%C3%B3n/resultado_touchs_ubuntu.png">
 
@@ -62,3 +64,11 @@ Para conectarnos desde Ubuntu podemos bajarnos de la App Store un File Manager q
 ### Samba vs. NFS
 
 ### Otros Detalles
+
+### Bibliografía
+
+https://www.varonis.com/blog/cifs-vs-smb/
+https://ferhatakgun.com/network-share-performance-differences-between-nfs-smb/
+https://www.techrepublic.com/article/how-to-set-up-quick-and-easy-file-sharing-with-samba/
+https://eltallerdelbit.com/clientes-smb-samba/
+http://www.linuxandubuntu.com/home/how-to-configure-samba-server-and-transfer-files-between-linux-windows
