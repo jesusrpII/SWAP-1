@@ -37,7 +37,16 @@ Y reiniciamos el servicio:
 ```PowerShell
 $ sudo systemctl restart smbd.service nmbd.service
 ```
-### Conexión y prueba
+
+En el fichero smb.conf podemos encontrar diferentes apartados. Existe una sección [global] reservada que especifica características de la configuración global. La sección que hemos añadido nosotros tiene la opción "guest ok = yes" con lo cual cualquier persona en la red podría acceder a dicha carpeta. 
+  En caso de querer limitar el acceso a ciertos usuarios deberíamos especificar la opción "valid users", es decir añadiríamos al final de la sección "valid users = juan, pedro, antonio". Ahora solo estarían autorizados estos usuarios. 
+  Para añadir usuarios, primeramente debemos crearlos en linux. Luego debemos asignarles una contraseña con smbpasswd. Para juan los comandos serían: 
+    sudo adduser juan
+    sudo smbpasswd -a juan
+    (nos pide contraseña)
+
+También está la posibilidad de que queramos restringir el acceso a un espacio a determinadas máquinas o subredes. La opción a usar sería "hosts allow". Por ejemplo, añadiríamos "hosts allow = 192.168.3.2" si quisiéramos que sólo esa IP pudiera tener acceso a esa sección. También podemos especificar una  subred entera simplemente borrando el último octeto. 
+  En la configuración por defecto de samba no hay "hosts allow" definidos en la sección global. Por ello, para cada sección se aplica únicamente la regla que definamos allí. Por tanto, en nuestro caso, "hosts allow = 192.168.3.5"  permite el acceso únicamente a dicha IP. Al final hay un enlace a un documento sobre cómo samba calcula las IPs autorizadas a una sección.
 
 Vamos a conectarnos desde tres sistemas operativos diferentes (linux, windows y Android) a la carpeta para ver el correcto y vamos a observar cómo un cambio creado desde un sitio se muestra en los demás.
 
@@ -67,8 +76,18 @@ Para conectarnos desde Ubuntu podemos bajarnos de la App Store un File Manager q
 
 ### Bibliografía
 
+Conocimiento general y tutoriales:
+
 https://www.varonis.com/blog/cifs-vs-smb/
 https://ferhatakgun.com/network-share-performance-differences-between-nfs-smb/
 https://www.techrepublic.com/article/how-to-set-up-quick-and-easy-file-sharing-with-samba/
 https://eltallerdelbit.com/clientes-smb-samba/
 http://www.linuxandubuntu.com/home/how-to-configure-samba-server-and-transfer-files-between-linux-windows
+
+Especificaciones más técnicas de samba: 
+
+https://wiki.samba.org/index.php/Main_Page
+https://www.sergio-gonzalez.com/doc/10-ldap-samba-cups-pykota/html/samba-configuracion-samba.html
+
+Host allow, host deny y cómo se calculan las IPs autorizadas:
+https://www.oreilly.com/openbook/samba/book/ch04_06.html
