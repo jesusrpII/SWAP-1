@@ -6,25 +6,33 @@
 Integrantes del grupo: David Luque y Jesús Rodríguez
 
 ## Objetivo
-Nuestro objetivo es montar un servidor Samba para el uso de carpetas compartidas. Esto nos permitirá acceder desde diferentes dispositivos con diferentes sistemas operativos a dichas carpetas, las cuales estarán sincronizadas en todo momento.
+El objetivo de este trabajo es crear un servidor Samba que permita crear una red de archivos compartidos, al igual que en la práctica 6 de la asignatura en la que se utiliza nfs. Sin embargo, a diferencia de nfs Samba utiliza un protocolo smb la cual es compatible con Windows, esto nos permitirá acceder desde diferentes dispositivos con diferentes sistemas operativos a recursos compartidos, los cuales estarán sincronizados en todo momento. En concreto vamos a probar la conexión con Linux, Windows y Android.
 
-Inicialmente nuestra idea era montar un servidor NFS que sirviera para Android, Linux y Windows. Sin embargo, en la App Store prácticamente todas las aplicaciones de gestión de archivos soportaban SMB pero no NFS. Además, hemos leído y buscado sobre las ventajas y desventajas de Samba frente a NFS y parece que Samba es más adecuado cuando se está en un entorno mixto, es decir con diferentes sistemas operativos. También parece ser que NFS es bastante más rápido que Samba cuando se trata de paso de ficheros pequeños.
 
 ## Instalación de SMB server en Linux, configuración y prueba.
 
 ### Instalación
+
+La instalación del servicio en un sistema linux es bastante sencilla, basta con lo siguiente:
 
 ```PowerShell
 $ sudo apt install samba
 ```
 
 ### Configuración:
+
+Una vez instalado el servidor samba accedemos a la configuración que se encuentra en /etc/samba/smb.conf.
+
 ```PowerShell
 $ sudo vi /etc/samba/smb.conf
 ```
-Al final del archivo añadimos un apartado para nuestra sección:
+Creamos el recurso compartido para ello utilizamos ["nombredelrecurso"] y debajo la configuración que se desee para dicho recurso:
 
 <img src="https://github.com/davidluque1/SWAP/blob/master/Trabajo%20Exposici%C3%B3n/fin_share.png">
+
+En el fichero smb.conf podemos encontrar diferentes apartados. Existe una sección global reservada que especifica características de la configuración global. 
+En la imagen anterior se ha añadido una sección con una configuración básica en la que path indica la ruta al directorio compartido,browsable indica que es visible desde el buscador de archivos en red, guest ok permite que se pueda acceder al recurso sin usuario ni contraseña, create mask indica los permisos que se otorgan sobre el recurso...
+En definitiva creamos un recurso compartido en la red que puede ser editado y accedido por cualquier usuario y equipo en la red.
 
 Ahora creamos la carpeta que hayamos especificado en la sección. 
 
@@ -38,9 +46,9 @@ Y reiniciamos el servicio:
 $ sudo systemctl restart smbd.service nmbd.service
 ```
 
-En el fichero smb.conf podemos encontrar diferentes apartados. Existe una sección global reservada que especifica características de la configuración global. La sección que hemos añadido nosotros tiene la opción "guest ok = yes" con lo cual cualquier persona en la red podría acceder a dicha carpeta. 
 
-  En caso de querer limitar el acceso a ciertos usuarios deberíamos especificar la opción "valid users", es decir añadiríamos al final de la sección "valid users = juan, pedro, antonio". Ahora solo estarían autorizados estos usuarios. 
+
+En caso de querer limitar el acceso a ciertos usuarios deberíamos especificar la opción "valid users", es decir añadiríamos al final de la sección "valid users = juan, pedro, antonio". Ahora solo estarían autorizados estos usuarios. 
   Para añadir usuarios, primeramente debemos crearlos en linux. Luego debemos asignarles una contraseña con smbpasswd. Para juan los comandos serían: 
   
     sudo adduser juan
@@ -55,16 +63,19 @@ También está la posibilidad de que queramos restringir el acceso a un espacio 
 
 Vamos a conectarnos desde tres sistemas operativos diferentes (linux, windows y Android) a la carpeta para ver el correcto y vamos a observar cómo un cambio creado desde un sitio se muestra en los demás.
 
-Primero creemos en la carpeta 4 archivos de ejemplo:
+Se ha creado en la carpeta 4 archivos de ejemplo:
 
 <img src="https://github.com/davidluque1/SWAP/blob/master/Trabajo%20Exposici%C3%B3n/touchs.png">
 
-Y ahora vamos a conectarnos:
 
-Para la conexión desde windows recomendamos ir a ejecutar -> \\<ip_sv>. Tras pulsar enter nos debe llevar a la carpeta usando el explorador de archivos. Para saber la IP a la que debemos conectarnos ejecutamos ifconfig en la máquina donde hayamos montado el servidor. 
+#### Conexión desde Windows
+
+Para la conexión desde windows recomendamos ir a ejecutar -> \\<ip_delservidor>. Tras pulsar enter nos debe llevar a la carpeta usando el explorador de archivos. Para saber la IP a la que debemos conectarnos ejecutamos ifconfig en la máquina donde hayamos montado el servidor. 
 
 <img src="https://github.com/davidluque1/SWAP/blob/master/Trabajo%20Exposici%C3%B3n/resultado_touchs.png">
 
+
+#### Conexión desde Linux
 
 Para la conexión desde linux usamos simplemente el explorador. Debajo de equipo veremos "Conectarse con un servidor". Introducimos smb://<ip> y pulsamos enter.
 
@@ -75,9 +86,6 @@ Para conectarnos desde Ubuntu podemos bajarnos de la App Store un File Manager q
 
 <img src="https://github.com/davidluque1/SWAP/blob/master/cambios_android.jpeg">
 
-### Samba vs. NFS
-
-### Otros Detalles
 
 ### Bibliografía
 
@@ -96,6 +104,11 @@ http://www.linuxandubuntu.com/home/how-to-configure-samba-server-and-transfer-fi
 Especificaciones más técnicas de samba: 
 
 https://wiki.samba.org/index.php/Main_Page
+
+https://www.sergio-gonzalez.com/doc/10-ldap-samba-cups-pykota/html/samba-configuracion-samba.html
+
+Host allow, host deny y cómo se calculan las IPs autorizadas:
+https://www.oreilly.com/openbook/samba/book/ch04_06.html
 
 https://www.sergio-gonzalez.com/doc/10-ldap-samba-cups-pykota/html/samba-configuracion-samba.html
 
