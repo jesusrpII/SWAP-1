@@ -109,8 +109,3 @@ https://www.sergio-gonzalez.com/doc/10-ldap-samba-cups-pykota/html/samba-configu
 
 Host allow, host deny y cómo se calculan las IPs autorizadas:
 https://www.oreilly.com/openbook/samba/book/ch04_06.html
-
-https://www.sergio-gonzalez.com/doc/10-ldap-samba-cups-pykota/html/samba-configuracion-samba.html
-
-Host allow, host deny y cómo se calculan las IPs autorizadas:
-https://www.oreilly.com/openbook/samba/book/ch04_06.html
