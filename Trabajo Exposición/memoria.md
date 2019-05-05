@@ -42,6 +42,7 @@ En el fichero smb.conf podemos encontrar diferentes apartados. Existe una secci�
 
   En caso de querer limitar el acceso a ciertos usuarios deberíamos especificar la opción "valid users", es decir añadiríamos al final de la sección "valid users = juan, pedro, antonio". Ahora solo estarían autorizados estos usuarios. 
   Para añadir usuarios, primeramente debemos crearlos en linux. Luego debemos asignarles una contraseña con smbpasswd. Para juan los comandos serían: 
+  
     sudo adduser juan
     
     sudo smbpasswd -a juan
