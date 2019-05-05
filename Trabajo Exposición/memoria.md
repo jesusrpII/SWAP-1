@@ -84,14 +84,19 @@ Para conectarnos desde Ubuntu podemos bajarnos de la App Store un File Manager q
 Conocimiento general y tutoriales:
 
 https://www.varonis.com/blog/cifs-vs-smb/
+
 https://ferhatakgun.com/network-share-performance-differences-between-nfs-smb/
+
 https://www.techrepublic.com/article/how-to-set-up-quick-and-easy-file-sharing-with-samba/
+
 https://eltallerdelbit.com/clientes-smb-samba/
+
 http://www.linuxandubuntu.com/home/how-to-configure-samba-server-and-transfer-files-between-linux-windows
 
 Especificaciones más técnicas de samba: 
 
 https://wiki.samba.org/index.php/Main_Page
+
 https://www.sergio-gonzalez.com/doc/10-ldap-samba-cups-pykota/html/samba-configuracion-samba.html
 
 Host allow, host deny y cómo se calculan las IPs autorizadas:
