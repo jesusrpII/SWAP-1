@@ -10,7 +10,7 @@ Cherokee es otro servidor web que también permite balanceo de carga y la config
 
 # Tema 2
 
-##Ejercicio 1
+## Ejercicio 1
 **Calcular la disponibilidad del sistema si tenemos dos réplicas de cada elemento (en total 3 elementos en cada subsistema)**
 ![Imagen1](https://github.com/davidluque1/SWAP/blob/master/Ejercicios%20de%20clase/tabla.png)
 
@@ -63,10 +63,81 @@ https://news.cherryservers.com/limited-deal-for-storage-servers?gclid=CjwKCAjw_Y
 
 # Tema 3
 
+## Ejercicio 1 
+**Buscar con qué órdenes de terminal o herramientas podemos configurar bajo Windows y bajo Linux el enrutamiento del tráfico de un servidor para pasar el tráfico desde una subred a otra. **
 
+En linux haría esto:
+
+    echo 1 > /proc/sys/net/ipv4/ip_forward
+    iptables -A FORWARD -i wlan1 -o wlan0 -j ACCEPT
+    iptables -A FORWARD -i wlan0 -o wlan1 -m state --state ESTABLISHED,RELATED \
+             -j ACCEPT
+    iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+
+Y en windows esto:
+  Instalamos RINETD, creamos un fichero de configuración donde lo hayamos extraido y ponemos como línea: 0.0.0.0 80 192.168.100.1 80. La sintaxis es <source> <port> <destination> <port>. Esto enrutaría todo el tráfico del puerto 80 a 192.168.100.1. Luego ejecutaríamos el proceso: C:\Folder\Where\You\Extracted\rinetd>rinetd.exe -c config.cfg
+  
+## Ejercicio 2 
+**Buscar con qué órdenes de terminal o herramientas gráficas podemos configurar bajo Windows y bajo Linux el filtrado y bloqueo de paquetes.**
+
+En linux podemos usar IPtables. En windows podemos usar el firewall, que cuenta con interfaz gráfica.
 
 # Tema 4
 
+
+## Ejercicio 1
+**Buscar información sobre cuánto costaría en la actualidad un mainframe que tuviera las mismas prestaciones que una granja web con balanceo de carga y 10 servidores finales (p.ej). Comparar precio y potencia entre esa hipotética máquina y la granja web de unas prestaciones similares.**
+Tras un tiempo buscando, me ha sido imposible encontrar información exacta sobre la capacidad de cómputo total de un mainframe y su precio de forma segura como para poder compararla con servidores de menor escala, en parte ya que IBM no pone precios directamente en su página web. Sí es cierto que los mainframes de IBM parecen costar de $40,000 para arriba. Los servidores de menor escala que he buscado suelen costar entre 1300-3000€. Diría que renta un mainframe sólo si necesitamos procesar un volumen de datos muy grande. Hasta llegar a ese punto renta mucho más servidores corrientes. 
+
+## Ejercicio 2
+
+**Buscar información sobre precio y características de balanceadores comerciales (hardware) específicos.**
+
+https://www.loadbalancer.org/eu?category=products&post-name=hardware&gclid=CjwKCAjw_YPnBRBREiwAIP6TJ_eO1vUtwNsGNB6ThvB5g_DZF6LxwwczLlabjgTzmURwht5xr0kvcxoCpQ8QAvD_BwE
+
+https://kemptechnologies.com/es/server-load-balancing-appliances/product-matrix.html
+
+Pongamos que tenemos unos 12.000€. En loadbalancer adquiriríamos el Enterprise Ultra y en kempt el LM-X15. En "Application Throughput" ganaría LoadBalancer, si bien es cierto que nos costaría 2.000€ y que la mejora no sería algo desorbitado, sino algo ligero. En L7 concurrent connections ganaría de lejos LoadBalancer (1,200,000 frente a 262,500). El producto de LoadBalancer tiene la mitad de ram, sin embargo.
+
+## Ejercicio 4
+
+**Buscar información sobre los métodos de balanceo queimplementan los dispositivos recogidos en el ejercicio 4.2 (o el software que hemos propuesto para la práctica 3). **
+
+Round robin -- Planificación por round robin (turnos), de forma secuencial.
+Weighted round robin -- Como round robin, pero asignando un peso a cada servidor. P.ej el servidor A sirve 3x más que el B.
+Least connection -- La siguiente petición debe ser procesada por el servidor con menor nº de conexiones.
+Weighted least connection -- Al igual que least connection, pero añadiendo un peso a cada servidor
+Fixed weighted -- O por prioridad. Los servidoers tienen asignada una prioridad, y las peticiones van al servidor de mayor prioridad. Si éste falla, las peticiones van al 2º con mayor prioridad.
+Weighted response -- Basado en el tiempo de respuesta
+Source IP hash -- Usando Hashes de IP se determina qué servidor atenderá la petición
+
+
+## Ejercicio 6
+**Buscar información sobre los bloques de IP para los distintos países o continentes. Implementar en JavaScript o PHP la detección de la zona desde donde se conecta un usuario.**
+
+Sobre los bloques:
+![Imagen1](https://blog.ip2location.com/wp-content/uploads/2018/12/ipv4_address_map_2016_overlay.png)
+
+Para ver de dónde se conecta un usuario usamos la API de iplocate:
+
+https://www.iplocate.io/
+
+El código php es simple:
+
+    <?php
+    $res = file_get_contents('https://www.iplocate.io/api/lookup/46.7.3.29');
+    $res = json_decode($res);
+
+    var_dump($res);
+?>
+
+Lo he probado en una página web personalizada con ese simple código y es sencillo obtener los datos dada una IP:
+
+![Imagen1](https://github.com/davidluque1/SWAP/blob/master/Ejercicios%20de%20clase/php_zona.png)
+
+
+## Ejercicio 7
+**Buscar información sobre métodos y herramientas para implementar GSLB.**
 
 
 # Tema 5
@@ -96,7 +167,21 @@ https://www.trustradius.com/application-server
 
 ## Tema 3
 
+https://serverfault.com/questions/431593/iptables-forwarding-between-two-interface
+
+https://ma.ttias.be/tcp-traffic-redirection-on-windows/
+
+https://www.quora.com/How-do-I-block-all-TCP-packets-to-a-specific-IP-address-from-my-Windows-10-computer
+
 ## Tema 4
+
+https://www.suse.com/c/mainframe-versus-server-farm-comparison/
+
+https://bits.blogs.nytimes.com/2013/07/23/mainframe-computers-that-change-with-the-times/
+
+https://www.techopedia.com/definition/31290/load-balancing-methods
+
+https://www.iplocate.io/
 
 ## Tema 5
 
