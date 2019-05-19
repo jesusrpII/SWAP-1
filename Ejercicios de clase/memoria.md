@@ -112,7 +112,7 @@ Pongamos que tenemos unos 12.000€. En loadbalancer adquiriríamos el Enterpris
 
 ## Ejercicio 4
 
-**Buscar información sobre los métodos de balanceo queimplementan los dispositivos recogidos en el ejercicio 4.2 (o el software que hemos propuesto para la práctica 3). **
+**Buscar información sobre los métodos de balanceo queimplementan los dispositivos recogidos en el ejercicio 4.2 (o el software que hemos propuesto para la práctica 3).**
 
 Round robin -- Planificación por round robin (turnos), de forma secuencial.
 Weighted round robin -- Como round robin, pero asignando un peso a cada servidor. P.ej el servidor A sirve 3x más que el B.
