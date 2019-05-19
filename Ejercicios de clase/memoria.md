@@ -11,7 +11,6 @@ Cherokee es otro servidor web que también permite balanceo de carga y la config
 # Tema 2
 
 ##Ejercicio 1
-
 **Calcular la disponibilidad del sistema si tenemos dos réplicas de cada elemento (en total 3 elementos en cada subsistema)**
 ![Imagen1](https://github.com/davidluque1/SWAP/blob/master/Ejercicios%20de%20clase/tabla.png)
 
@@ -35,6 +34,31 @@ La tercera tabla sería:
 Pm2 es un gestor de procesos en producción para las aplicaciones Node.js que cuenta con un balanceador de carga incorporado. PM2 permite mantener siempre activas las aplicaciones y volver a cargarlas en caso de caída, evitando tiempos de inactividad. También facilita tareas comunes de administrador del sistema y permite monitorizar éste. PM2 también permite gestionar los logs de aplicaciones, su supervisión y cómo están agrupadas.
 
 Otro framework es Express.js, que se podría decir que es el de facto de node.js, y es la librería subyacente para un gran número de otros frameworks web de node.js. 
+
+## Ejercicio 3
+**¿Cómo analizar el nivel de carga de cada uno de los subsistemas en el servidor? **
+
+
+## Ejercicio 4
+**Buscar ejemplos de balanceadores software y hardware(productos comerciales).**
+
+https://www.loadbalancer.org/eu?category=products&post-name=hardware&gclid=CjwKCAjw_YPnBRBREiwAIP6TJ8sq8b_rVVd683OdxvCZThrO5-5xK_K2fs0sJro95BArhE6L9RnfUhoC17AQAvD_BwE
+
+Podemos ver diferentes productos. Por ejemplo, el R20 Enteprise ofrece 5 clusters, cada uno con 4 servidores backend, por 3595€. Esto en cuanto a hardware.
+
+En cuanto a software, existen numerosos productos. Buscando rápido encontramos un GSLB de pago:
+
+https://www.pulsesecure.net/resource/global-load-balancing-with-pulse-secure-virtual-traffic-manager/?utm_source=google&utm_medium=cpc&gclid=CjwKCAjw_YPnBRBREiwAIP6TJ04L14ATR12IFkeF93rq_EuguICLFqObEUTOKDgt_--MnSVqYxtHohoC1HYQAvD_BwE
+**Buscar productos comerciales para servidores de aplicaciones.**
+Para servidores de aplicación, existe Oracle WebLogic Application Server, IBM WebSphere Application Server, 
+
+**Buscar productos comerciales para servidores de almacenamiento. **
+
+Aquí no sé si se refiere a software para gestionar almacenamiento o a almacenamiento en sí. Un ejemplo de almacenamiento: 
+
+https://www.host.ag/storage-servers?utm_campaign=1781974517&utm_source=google&utm_medium=cpc&utm_content=343762872392&utm_term=storage%20servers&adgroupid=71970405514&gclid=CjwKCAjw_YPnBRBREiwAIP6TJ_kQLPoKL_OiCA38PxxhXvrW5IXzgSAlBZ_TFEOnYPEnm0SQGg2UNRoCNhwQAvD_BwE
+
+https://news.cherryservers.com/limited-deal-for-storage-servers?gclid=CjwKCAjw_YPnBRBREiwAIP6TJ-LCFDNA6LNowyp99UUFlqZlJS_teWWa98G_klZgo1NUiHfqPo8kxRoC8HoQAvD_BwE
 
 
 # Tema 3
@@ -64,6 +88,11 @@ https://es.wikipedia.org/wiki/Cherokee_(servidor_web)
 https://www.netconsulting.es/blog/nodejs/
 
 ## Tema 2
+
+https://www.netconsulting.es/blog/nodejs/
+https://en.wikipedia.org/wiki/PM2_(software)
+
+https://www.trustradius.com/application-server
 
 ## Tema 3
 
