@@ -153,11 +153,58 @@ Lo he probado en una página web personalizada con ese simple código y es senci
 
 # Tema 5
 
+## Ejercicio 1
 
+**Buscar información sobre cómo calcular el número de conexiones por segundo.**
+
+Podríamos instalar un módulo para apache2 del tipo server-status que nos diera los request/seg y de ahí obtener las conexiones/seg. Para habilitar el módulo editamos el fichero de configuración mostrado:
+![Imagen1](https://github.com/davidluque1/SWAP/blob/master/Ejercicios%20de%20clase/conexiones_seg.png)
+
+## Ejercicio 2
+
+**Revisar los análisis de tráfico que se ofrecen en: http://bit.ly/1g0dkKj. Instalar wireshark y observar cómo fluye el tráfico de red en uno de los servidores web mientras se le hacen peticiones HTTP… o en la red de casa**
+
+![Imagen1](https://github.com/davidluque1/SWAP/blob/master/Ejercicios%20de%20clase/wireshark_web.png)
+
+Paquetes 1-3: 3 way handshake para establecer la conexión
+Paquetes 19-22: finalización de la conexión en 4 pasos
+Paquete 9: Respuesta OK del servidor 
+Resto: contenido
+
+## Ejercicio 3
+
+**Buscar información sobre características, funcionalidad, disponibilidad para diversos SO, etc de herramientas para monitorizar las prestaciones de un servidor**
 
 # Tema 6
 
+## Ejercicio 1
 
+**Aplicar con iptables una política de denegar todo el tráfico en una de las máquinas de prácticas. Comprobar el funcionamiento.
+Aplicar con iptables una política de permitir todo el tráfico en una de las máquinas de prácticas. Comprobar el funcionamiento.**
+
+Ya lo hicimos en prácticas
+
+
+## Ejercicio 2
+
+**Comprobar qué puertos tienen abiertos nuestras máquinas, su estado, y qué programa o demonio lo ocupa.**
+Es sencillo con el comando netstat -peanut:
+![Imagen1](https://github.com/davidluque1/SWAP/blob/master/Ejercicios%20de%20clase/puertos.png)
+
+(vemos como apache2 usa el 80)
+
+
+## Ejercicio 3
+
+**Buscar información acerca de los tipos de ataques más comunes en servidores web (p.ej. secuestros de sesión). Detallar en qué consisten, y cómo se pueden evitar.**
+
+1 -> Ataques DDOS. Los hay de diferentes tipos y consisten en hacer el servidor inaccesible, bien porque saturan las conexiones que el router puede manejar o bien porque crashean el servidor. La solución general es situar los servidores tras un firewall.
+
+2 -> Man-in-the-middle (MitM) attack. Consiste en suplantar la identidad de algún cliente conectado al servidor, de forma que nos ponemos entre ellos. El uso de protocolos seguros y la encriptación de los datos puede ayudar a prevenir ciertos ataques. 
+
+3 -> Inyecciones SQL. Consisten en ejecutar sentencias SQL del servidor usando formularios inseguros. Son prevenibles usando "prepared statements".
+
+4 -> Cross-site scripting (XSS) attack. Consiste en inyectar un script malicioso en una página web que un visitante ejecutará al visitar la página. Es prevenible teniendo un servidor web seguro y no dejando que terceros puedan inyectar dichos scripts maliciosos.
 
 # Tema 7
 
@@ -197,3 +244,7 @@ https://www.iplocate.io/
 ## Tema 5
 
 ## Tema 6
+
+https://askubuntu.com/questions/278448/how-to-know-what-program-is-listening-on-a-given-port
+
+https://blog.netwrix.com/2018/05/15/top-10-most-common-types-of-cyber-attacks/
