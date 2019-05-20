@@ -43,9 +43,6 @@ Pm2 es un gestor de procesos en producción para las aplicaciones Node.js que cu
 
 Otro framework es Express.js, que se podría decir que es el de facto de node.js, y es la librería subyacente para un gran número de otros frameworks web de node.js. 
 
-## Ejercicio 3
-**¿Cómo analizar el nivel de carga de cada uno de los subsistemas en el servidor?**
-
 
 ## Ejercicio 4
 **Buscar ejemplos de balanceadores software y hardware (productos comerciales).**
