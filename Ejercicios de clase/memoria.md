@@ -91,8 +91,8 @@ Y en windows esto:
 ## Ejercicio 2 
 **Buscar con qué órdenes de terminal o herramientas gráficas podemos configurar bajo Windows y bajo Linux el filtrado y bloqueo de paquetes.**
 
-En linux podemos usar IPtables. En windows podemos usar el firewall, que cuenta con interfaz gráfica.
-
+En linux podemos usar IPtables (visto en prácticsa). En windows podemos usar el firewall, que cuenta con interfaz gráfica. Para bloquear una IP completamente simplemente  nos vamos a entrada -> le damos a añadir regla personalizada -> en acción ponemos bloquear. 
+![Imagen1](https://github.com/davidluque1/SWAP/blob/master/Ejercicios%20de%20clase/firewall.png)
 # Tema 4
 
 
@@ -171,9 +171,6 @@ Paquetes 19-22: finalización de la conexión en 4 pasos
 Paquete 9: Respuesta OK del servidor 
 Resto: contenido
 
-## Ejercicio 3
-
-**Buscar información sobre características, funcionalidad, disponibilidad para diversos SO, etc de herramientas para monitorizar las prestaciones de un servidor**
 
 # Tema 6
 
@@ -260,7 +257,6 @@ https://www.techopedia.com/definition/31290/load-balancing-methods
 
 https://www.iplocate.io/
 
-## Tema 5
 
 ## Tema 6
 
