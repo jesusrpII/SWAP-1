@@ -206,10 +206,29 @@ Es sencillo con el comando netstat -peanut:
 
 4 -> Cross-site scripting (XSS) attack. Consiste en inyectar un script malicioso en una página web que un visitante ejecutará al visitar la página. Es prevenible teniendo un servidor web seguro y no dejando que terceros puedan inyectar dichos scripts maliciosos.
 
+5 -> Phising. Creación de una página web idéntica a otra, pero a la que tenemos acceso. Cuando una víctima introduzca datos en nuestra página, nos llegarán a nosotros
+
 # Tema 7
+**Buscar información sobre los sistemas de ficheros en red más utilizados en la actualidad y comparar sus características. Hacer una lista de ventajas e inconvenientes de todos ellos, así como grandes sistemas en los que se utilicen.**
+
+1. NT File System (NTFS)
+
+NTFS is es el sistema de ficheros usado por las versiones recientes de Windows. Tiene características modernas que no tienen exFAT ni FAT32. NTFS permisos de ficheros para seguridad, un "journal" para recuperarse de errores si el PC crashea, copias fantasma para backups, encripción, cuotas de disco duro, etcétera. Es compatible con todas las versiones de windows, y es de sólo lectura por defecto en MacOS y algunas distribuciones de linux. Su uso ideal es cuando el dispositivo vaya a usar el sistema operativo Windows.
 
 
-#Bibliografía
+2. FAT32
+
+FAT32 es el sistema de archivos más antiguo de los tres de windows. Los ficheros en este SA no pueden superar los 4GB y la partición en sí no puede superar los 8TB. Las versiones modernas de FAT32 no pueden instalarse en dispositivos con FAT32. FAT32 funciona con prácticamente cualquier sistema operativo: linux, windows, mac. Por ello, su uso es recomendado si tenemos una serie de archivos guardados y necesitamos la máxima compatibilidad con cualquier sistema operativo. 
+
+3. ext4
+
+ext4 nació como un sistema de ficheros compatible hacia atrás con ext3, con el fin de extender límites de almacenamiento y mejorar ciertos aspectos relacionados con el rendimiento. Entre las ventajas están: podemos manejar el espacio de forma aisalda entre aplicaciones, podemos montar, desmontar, defragmentar o monitorear el rendimiento de SA de forma independiente, y podemos encriptar volúmenes. Las desventajas son que usa más recursos, que hay más posibilidad de malgastar espacio y más posibilidad de avisos de disco lleno, así como que será más difícil conseguir espacio para un volumen quitándoselo a otro.
+
+4. APFS
+
+Apple File System se lanzó en marzo de 2017 como un sustituto a HFS+, usado desde 1998. Entre sus ventajas encontramos: clonación eficiente de archivos usando deltas, soporte de snapshots, encripción con diferentes opciones, integridad de metadatos y protección a caídas, entre otras. Entre las desventajas cabe destacar que no permite la compresión ni hace comprobaciones de los datos almacenados, sólo de metadatos.
+
+# Bibliografía y páginas consultadas
 
 ## Tema 1
 https://es.wikipedia.org/wiki/Thttpd
@@ -248,3 +267,11 @@ https://www.iplocate.io/
 https://askubuntu.com/questions/278448/how-to-know-what-program-is-listening-on-a-given-port
 
 https://blog.netwrix.com/2018/05/15/top-10-most-common-types-of-cyber-attacks/
+
+## Tema 7
+
+https://www.ufsexplorer.com/articles/file-systems-basics.php
+
+https://en.wikipedia.org/wiki/Comparison_of_file_systems
+
+https://www.geeksforgeeks.org/difference-fat32-exfat-ntfs-file-system/
