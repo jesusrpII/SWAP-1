@@ -144,9 +144,6 @@ Lo he probado en una página web personalizada con ese simple código y es senci
 ![Imagen1](https://github.com/davidluque1/SWAP/blob/master/Ejercicios%20de%20clase/php_zona.png)
 
 
-## Ejercicio 7
-**Buscar información sobre métodos y herramientas para implementar GSLB.**
-
 
 # Tema 5
 
