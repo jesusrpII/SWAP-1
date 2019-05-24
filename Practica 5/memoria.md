@@ -17,7 +17,7 @@ Hemos seguido el guión y hemos creado una base de datos en la máquina 1:
 
 Copia de seguridad en máquina 1 (servidor principal):
 
-![Imagen2](https://github.com/jesusrpII/SWAP/tree/master/Practica5/p5_mysqldump.png)
+![Imagen2](https://github.com/jesusrpII/SWAP/blob/master/Practica5/p5_mysqldump.png)
 
 
 
